@@ -208,11 +208,16 @@ const artists = [
 (1) Name of the first artist in the array
 (2) Bio of the third artist in the array */
 
+let first = artists [0];
+console.log(first.name);
 
+let thirdBio = artists [2];
+console.log(thirdBio.bio);
 
 /* Task 2: There is a typo in your dataset 😱 The 9th artist, Vincent Van Gogh is currently Vincent Van Dough. Use an array method to fix this issue and console.log() to check your work. */
 
-
+artists[8] = 'Vincent Van Gogh';
+console.log(artists[8]);
 
 /* Task 3: Create a function called `getArtistByIndex` that takes two arguments:
  *     (1) artists array
@@ -222,11 +227,11 @@ const artists = [
  * For example, if getArtistByIndex is invoked with the inventory and the number 0,
  * it will return `The artist at index 0 is Amedeo Modigliani`.
 */
-function getArtistByIndex(id, name) {
-    /* code here */
+function getArtistByIndex(id,name) {
+
+  return `The artist at index ${artists[ artists.length -1].id} is ${artists[ artists.length -1].name}`
   }
   
-  /**
 
 
 /* Task 4: Create a function called `removeArtist` that takes two arguments:
@@ -237,28 +242,41 @@ function getArtistByIndex(id, name) {
  * For example, if removeArtist is invoked with the data and the number 0,
  * it will remove Amedeo Modigliani from our dataset.
 */
-function removeArtist(/*code here*/) {
-    /* code here */
+function removeArtist(artists, id) {
+  let first = artists[0];
+  for (let index=0; index<artists.length; index++){
+    first.pop(artists[index].first); 
   }
+}
   
-  /**
 
 
 /* Task 5: Create a function called get20s() that takes data as an argument and returns an array with names of artists who were born the 20th century (1800-1900) */
 
-function get20s(/* Code here */){
-
-    /* Code here */
-
-  }
+function get20s(artists){
+    let artist20Cent = []; 
+    for (let index=0; index<artists.length; index++) //set up loop
+    {
+      if (artists[index].years = 1800 && 1999)  {
+        artists20Cent.push(artists[index].artist20Cent);
+        return artist20Cent
+      }
+    }
 
 /* Task 6: Create a function called lotsOfArt() that takes artists as an argument and returns an array with names of artists who painted more than 100 paintings */
 
-function lotsOfArt(/* Code here */){
-
-    /* Code here */
-
-  }
+function lotsOfArt(artists){
+  let moreThan100 = [];
+  for (let index=0; index<artists.length; index++) 
+{
+if (artists[index].paintings >=100){
+  moreThan100.push(artists.name);
+}
+  moreThan100.push(artists[index].moreThan100);
+}
+return moreThan100;
+  
+}
 
 
 /* Task 7: Create a function called `addArtist` that can accept an array of information and add it to the artists array. Then, Add a 21st artist to the array (you) with custom information! 👩‍🎨👨‍🎨
@@ -270,20 +288,34 @@ genre: Web Design,
 nationality: Your Nationality Here
 bio: Add 1-2 sentences (or use lorem ipsum) "*/
 
-function addArtist(/* Code here */){
-
-    /* Code here */
-
-  }
+function addArtist(artists){
+  const myInfo = [ 
+    {"id": "21",
+    'name': "Vickie Nelson",
+    "years": "1974 - 2020",
+    "genre": "Web Design", 
+    "nationality": "Puerto Rican", 
+    "bio": "UX designer turned Web developer. Former professional singer-songwriter in Nashville, TN."}
+  ]
+    const modifiedArtists = artists.concat(myInfo);
+    console.log (modifiedArtists);
+}
 
 
 /* Task 8: Create a function called `checkArtist` that accepts a string (name of an artist) and checks if that artist is in the dataset. */
 
-function checkArtist(/* Code here */){
-
-    /* Code here */
-
-  }
+function checkArtist(artists){
+  const checkForArtist = [''];
+  for (let index=0; index<artists.length; index++){
+    if (artists[index] ===`{name}`){
+      checkArtist.push('in the dataset');
+    } 
+    else {
+      checkArtist.push('not in dataset');
+    } 
+  } 
+    return checkForArtist;
+  } 
 
 
 
@@ -327,4 +359,4 @@ function randomize(/* Code here */){
   }
 
 
- /* STRETCH 3: Use advanced array methods (.map, .reduce, .filer) to refactor your MVP code (create an array of all artists born in the 1900s with .filter, for example) */
+ /* STRETCH 3: Use advanced array methods (.map, .reduce, .filer) to refactor your MVP code (create an array of all artists born in the 1900s with .filter, for example) */}
